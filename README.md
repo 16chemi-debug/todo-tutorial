@@ -2,6 +2,13 @@
 
 [Claude Code Playbook](https://docs.claude-hunt.com) 강의의 실습용 저장소입니다. Next.js 와 shadcn/ui 로 시작하는 작은 Todo 앱을 단계별로 발전시키며 Claude Code 사용법을 익힙니다.
 
+## 주요 기능
+
+- 할 일 추가 / 완료 토글 / 삭제
+- 우선순위(높음·보통·낮음) 및 카테고리(업무·개인·쇼핑) 지정
+- 마감일 지정
+- 상태(전체·진행중·완료) 필터, 카테고리 필터, 검색, 정렬(생성일순·이름순·마감일순)
+
 ## 관련 링크
 
 - 강의 본문: https://docs.claude-hunt.com
@@ -14,6 +21,7 @@
 - Tailwind CSS v4
 - shadcn/ui (radix-maia 스타일, taupe 베이스)
 - TypeScript / ESLint / Prettier
+- Vitest / Testing Library
 - 패키지 매니저: bun 1.3.6
 
 ## 시작하기
@@ -61,6 +69,17 @@ bunx --bun shadcn@latest add button
 ```tsx
 import { Button } from "@/components/ui/button";
 ```
+
+## 프로젝트 구조
+
+```
+app/            # App Router 엔트리 (page, layout, globals.css)
+components/     # 도메인 컴포넌트(todo-*) 및 shadcn/ui 컴포넌트(components/ui)
+lib/            # 타입 정의(types.ts), 유틸 함수(todo-utils.ts)
+hooks/          # 커스텀 훅
+```
+
+각 도메인 컴포넌트에는 동일한 이름의 `*.test.tsx` 테스트가 함께 있습니다.
 
 ## Contributors
 
